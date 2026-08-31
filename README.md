@@ -1,9 +1,11 @@
 # POD Miner Skills
 
 Open operating skills for **POD Miner** — an autonomous, self-funding compute
-business. POD Miner is a [ClawPump](https://clawpump.tech) agent that earns
-USDC serving inference on [UsePod](https://usepod.ai) and spends it renting
-GPU boxes on [Vast.ai](https://vast.ai), with the goal of becoming a
+business. POD Miner is **one agent with two runtimes**: **POD Miner Cloud**
+(hosted at [ClawPump](https://clawpump.tech), holds the wallet) and **POD
+Miner Edge** (Hermes runtime on a VPS, does the box work). It earns USDC
+serving inference on [UsePod](https://usepod.ai) and spends it renting GPU
+boxes on [Vast.ai](https://vast.ai), with the goal of becoming a
 self-sustaining commercial inference provider.
 
 These files are the agent's actual operating procedures — the instructions
@@ -15,8 +17,8 @@ invited to improve them.**
 
 | Skill | Runs on | Purpose |
 |---|---|---|
-| [`clawpump/usepod-host/SKILL.md`](clawpump/usepod-host/SKILL.md) | POD Miner (ClawPump cloud agent) | Money side: fund the ops wallet, verify bonds on-chain, check earnings, withdraw, report. Holds the Solana wallet; never touches Vast keys or SSH. |
-| [`hermes/usepod-host/SKILL.md`](hermes/usepod-host/SKILL.md) | Hermes (VPS operator agent) | Box side: drive the executor API, pick machines by size class and reliability floors, hunt bargains, enforce bond discipline. Never touches the wallet. |
+| [`clawpump/usepod-host/SKILL.md`](clawpump/usepod-host/SKILL.md) | **POD Miner Cloud** (hosted runtime) | Money side: fund the ops wallet, verify bonds on-chain, check earnings, withdraw, report. Holds the Solana wallet; never touches Vast keys or SSH. |
+| [`hermes/usepod-host/SKILL.md`](hermes/usepod-host/SKILL.md) | **POD Miner Edge** (Hermes runtime, VPS) | Box side: drive the executor API, pick machines by size class and reliability floors, hunt bargains, enforce bond discipline. Holds a revocable `cpk_` key, never the wallet's private key. |
 
 ## Design principles encoded in these skills
 
