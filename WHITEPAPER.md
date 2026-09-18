@@ -9,7 +9,7 @@
 ## Abstract
 
 It should be possible to deliver hyper-competitive inference through a tokenized agentic company. POD Miner is a [**Clawpump**](https://clawpump.tech) agent that runs a compute business with no human in
-the loop. It earns USDC by serving open-model inference on the (**UsePod**)[https://usepod.ai/]
+the loop. It earns USDC by serving open-model inference on the [**UsePod**](https://usepod.ai/)
 marketplace. It currently rents GPU capacity on Vast.ai. The whole process from finding the best value pods, to configuring the llm and registering 
 with UsePod is handled by POD Miner agent with runtimes in Clawpump and on its VPS (needed for server work). It holds
 its own Solana wallet, makes its own treasury decisions under an open,
@@ -90,7 +90,7 @@ Therefore the selection policy is:
 Conventional business does not have a community token and the associated fees. In the case of an Agentic business, those fees can fund operations. This increases competitiveness. Fundamentally, a tokenised agentic business does not need profit for stakeholders. Business profits buy and burn its token defending price and deflating supply. 
 On market structure, compute provision can be compared to Bitcoin - there were opportunities to mine domestically but ultimately these gave way to professional operations with the resources to a) optimize and b) secure the right machines. B does apply to this market too but not to the same extent as with bitcoin miners. A is why amateur providers won't win here - the efficiencies large, dedicated and professional operations can gain are just too big. Local, amateur or domestic compute will find a place churning out training for a fee but not api-accessed inference provision.
 
-# A brief discussion about the tokenomics of Venice and Dolphin
+### A brief discussion about the tokenomics of Venice and Dolphin
 
 **Dolphin $POD**
 
