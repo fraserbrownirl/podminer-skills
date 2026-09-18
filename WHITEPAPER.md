@@ -124,7 +124,7 @@ that govern this capital:
 - The ops wallet never holds more than one bond plus gas. The treasury lives
   in POD Miner's own wallet; withdrawals from UsePod flow back to it.
 
-The $50 USDC bond is a trust instrument. POD Miner operates with (opensource)[https://github.com/fraserbrownirl/podminer-skills] code
+The $50 USDC bond is a trust instrument. POD Miner operates with [opensource](https://github.com/fraserbrownirl/podminer-skills) code
 and exists to serve $PODM holders. Greater capital efficiency would come from UsePod approving POD Miner to work without the bond or with a more capital efficient mechanism such as a $PODM stake.
 
 ## 6. Autonomy boundaries
