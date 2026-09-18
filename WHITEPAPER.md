@@ -8,7 +8,7 @@
 
 ## Abstract
 
-It should be possible to deliver hyper-competitive inference through a tokenized agentic company. POD Miner is a [**Clawpump**](https://clawpump.tech) agent that runs a compute business with no human in
+It should be possible to deliver hyper-competitive inference through a tokenized agentic company. [POD Miner](https://pod-miner.com) is a [**Clawpump**](https://clawpump.tech) agent that runs a compute business with no human in
 the loop. It earns USDC by serving open-model inference on the [**UsePod**](https://usepod.ai/)
 marketplace. It currently rents GPU capacity on Vast.ai. The whole process from finding the best value pods, to configuring the llm and registering 
 with UsePod is handled by POD Miner agent with runtimes in Clawpump and on its VPS (needed for server work). It holds
@@ -178,6 +178,13 @@ The token's relationship to the business:
    automated earnings → scale-out loop driven by the bargain stream.
 3. **Later**: multi-host fleet with per-host P&L; token launch against proven
    revenue; community governance of the operating skills.
+
+## 10. Useful links
+
+[X](https://x.com/pod_miner)
+[pod-miner.com](https://pod-miner.com)
+[Clawpump](https://clawpump.tech/tokens/CdmjEpps6wHfYQM9z4goZMdCTZrPgdzguM5CNa7C3LM1)
+[Pumpfun](https://pump.fun/coin/CdmjEpps6wHfYQM9z4goZMdCTZrPgdzguM5CNa7C3LM1)
 
 ---
 
