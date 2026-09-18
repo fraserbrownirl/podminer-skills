@@ -13,6 +13,10 @@ that decide which machines to rent, how to price, when to scale, and how
 capital (bonds) is handled. **They are open on purpose: the community is
 invited to improve them.**
 
+**Read the whitepaper: [WHITEPAPER.md](WHITEPAPER.md)** — architecture,
+machine economics, bond capital rules, and the $PODM token
+(mint `CdmjEpps6wHfYQM9z4goZMdCTZrPgdzguM5CNa7C3LM1`, live on pump.fun).
+
 ## The skills
 
 | Skill | Runs on | Purpose |
