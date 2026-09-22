@@ -21,8 +21,8 @@ machine economics, bond capital rules, and the $PODM token
 
 | Skill | Runs on | Purpose |
 |---|---|---|
-| [`clawpump/usepod-host/SKILL.md`](clawpump/usepod-host/SKILL.md) | **POD Miner Cloud** (hosted runtime) | Money side: fund the ops wallet, verify bonds on-chain, check earnings, withdraw, report. Holds the Solana wallet; never touches Vast keys or SSH. |
-| [`hermes/usepod-host/SKILL.md`](hermes/usepod-host/SKILL.md) | **POD Miner Edge** (Hermes runtime, VPS) | Box side: drive the executor API, pick machines by size class and reliability floors, hunt bargains, enforce bond discipline. Holds a revocable `cpk_` key, never the wallet's private key. |
+| [`clawpump/usepod-host/SKILL.md`](clawpump/usepod-host/SKILL.md) **v0.2.2** | **POD Miner Cloud** (hosted runtime) | Money side: cover $50 USDC (SOL→USDC shortfall swap if needed), `agent_send` to ops, verify, earnings, withdraw. Paste this file into the ClawPump dashboard. Never Vast keys, never SSH. |
+| [`hermes/usepod-host/SKILL.md`](hermes/usepod-host/SKILL.md) **v0.7.1** | **POD Miner Edge** (Hermes runtime, VPS) | One-shot **inference-host standup**: `qwen3-coder:30b` on size `m`, display name `pod-miner.com - <gpu>`, executor provision, bond via `bond-post.mjs`. No teardown path. Do not paste this into ClawPump Cloud. |
 
 ## Design principles encoded in these skills
 
