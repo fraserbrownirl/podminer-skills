@@ -21,8 +21,8 @@ machine economics, bond capital rules, and the $PODM token
 
 | Skill | Runs on | Purpose |
 |---|---|---|
-| [`clawpump/usepod-host/SKILL.md`](clawpump/usepod-host/SKILL.md) **v0.2.2** | **POD Miner Cloud** (hosted runtime) | Money side: cover $50 USDC (SOL→USDC shortfall swap if needed), `agent_send` to ops, verify, earnings, withdraw. Paste this file into the ClawPump dashboard. Never Vast keys, never SSH. |
-| [`hermes/usepod-host/SKILL.md`](hermes/usepod-host/SKILL.md) **v0.7.1** | **POD Miner Edge** (Hermes runtime, VPS) | One-shot **inference-host standup**: `qwen3-coder:30b` on size `m`, display name `pod-miner.com - <gpu>`, executor provision, bond via `bond-post.mjs`. No teardown path. Do not paste this into ClawPump Cloud. |
+| [`clawpump/usepod-host/SKILL.md`](clawpump/usepod-host/SKILL.md) **v0.2.6** | **POD Miner Cloud** (hosted runtime) | Money side: cover $50 USDC (SOL→USDC shortfall swap if needed), `agent_send` to ops, verify, earnings, withdraw. Next product is Homura-30B; Tesla already serves Qwen. Paste this file into the ClawPump dashboard. Never Vast keys, never SSH. |
+| [`hermes/usepod-host/SKILL.md`](hermes/usepod-host/SKILL.md) **v0.8.0** | **POD Miner Edge** (Hermes runtime, VPS) | One-shot **inference-host standup**: default `homura:30b` on size `m`. Options table covers Homura (next), Qwen-coder-30b (live on Tesla), llama-8B (never on `m`). No teardown path. Do not paste this into ClawPump Cloud. |
 
 ## Design principles encoded in these skills
 
