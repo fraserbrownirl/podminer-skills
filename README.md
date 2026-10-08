@@ -13,9 +13,12 @@ that decide which machines to rent, how to price, when to scale, and how
 capital (bonds) is handled. **They are open on purpose: the community is
 invited to improve them.**
 
-**Read the whitepaper: [WHITEPAPER.md](WHITEPAPER.md)** — architecture,
-machine economics, bond capital rules, and the $PODM token
-(mint `CdmjEpps6wHfYQM9z4goZMdCTZrPgdzguM5CNa7C3LM1`, live on pump.fun).
+This repository is MIT-licensed. Canonical docs:
+
+- White paper v0.3: [`docs/WHITEPAPER.md`](docs/WHITEPAPER.md)
+- Operator file: [`docs/llms.txt`](docs/llms.txt)
+
+$PODM mint: `CdmjEpps6wHfYQM9z4goZMdCTZrPgdzguM5CNa7C3LM1` (verify before any trade).
 
 ## The skills
 

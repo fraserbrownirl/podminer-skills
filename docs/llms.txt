@@ -1,0 +1,151 @@
+# POD Miner
+
+> Independent inference. Three compute lines, one agent, one Solana wallet, one public API. White paper version 0.3, October 2026.
+
+POD Miner finds models people want, stands servers up under them, and sells the inference. The operating procedure is open. Rents are add-only: a new host never replaces a live one.
+
+Canonical write-up: [white paper](https://www.pod-miner.com/whitepaper). This file is the same model, plus the live endpoints an operator can use today.
+
+## The three lines
+
+### 1. Niche and obliterated models
+
+Most inference catalogs serve the same few names. POD Miner looks where they do not.
+
+The agent searches Hugging Face for obliterated and niche weights that already have demand. A model moves forward only when a server can hold it: VRAM class, reliability, bandwidth, and disk have to fit. The agent then stands that server up and publishes the model.
+
+Buyers are described in the white paper in two ways:
+
+- **Paid API.** OpenAI-compatible calls at `https://api.pod-miner.com/v1`, settled in USDC credits.
+- **x402.** An agent pays per request for the same inference, without a prepaid key.
+
+The live paid path on that URL today is a prepaid key. Per-request x402 for inference is the published design. This file does not point at a live x402 inference endpoint.
+
+A new model is a new host. It is not a reason to destroy one that is already serving.
+
+### 2. Dolphin, POD, and the $PODM defense
+
+Dolphin publishes offerings that need specific machines. The agent watches the server market for deals that fit the latest offering: the cheapest reliable hardware in the right class, not the first cheap box.
+
+Those hosts mine **POD**. Profit from that mining is capital the business can convert into defending the **$PODM** price: open-market support for the token, paid for by compute the agent actually ran. The public console describes the same aim as standing up new boxes toward $PODM with those profits.
+
+The Dolphin path is one agent action. Cloud pays the executor. Edge follows the Dolphin skill. The box is Vast credit, not an on-chain rent. A host that Vast reports as running is not, by that fact, a Dolphin node in the Active state.
+
+### 3. Mainstream inference and the rebate
+
+The third line is mainstream models, priced so that $PODM fees come back to users.
+
+Published rebate rule, from the white paper:
+
+> Pod Miner distributes 50% of its fees to users as a rebate every day. For example, if 24hr fees were $350 and users had spent $500 on inference, $175 will be distributed by the Pod Miner ClawPump agent straight to the users wallets.
+
+That dollar example is an illustration in the paper. It is not a reported trailing-24-hour total. The rule itself is 50% of fees, returned about every 24 hours, to the wallets that spent. The rebate is the pricing strategy: users pay the rate, and half of the fees return.
+
+The current general-model catalog on the credits path is `kimi-k2.5`, `gpt-5-mini`, `claude-haiku-4.5`, and `gemini-3-flash`. That catalog is separate from the self-hosted box that serves the free ClawPump key.
+
+## The operating pieces
+
+One company. One hosted ClawPump agent: `2ea1beed-873e-471d-a806-99c776bd2eca`. The wallet private key stays in ClawPump custody. Edge holds a revocable key, not the seed.
+
+| Piece | Role |
+|---|---|
+| **Cloud** (clawpump.tech) | Decides and pays. Wallet `APx5DT1CiQ3HRbJgS59Ms6anyrADePqdLhgCEW1XJuoc`. No shell. |
+| **Edge** (Hermes) | Follows the skills and does the box work. |
+| **Executor** | Holds the Vast credential. Rents hosts and wakes Dolphin. |
+| **Public API** | `https://api.pod-miner.com/v1` — paid keys, the shared ClawPump key, and consumer credits. |
+
+Earlier marketplace enrollment is not this design. The three lines above are the business.
+
+## How a host is chosen
+
+The same floors apply on every line:
+
+1. **Minimum VRAM that fits the model.** Idle VRAM is waste. A small model does not go on a card bought for a larger one.
+2. **Cheapest box that clears the floors.** Reliability ≥ 98.5%, inbound bandwidth ≥ 500 Mbps, disk ≥ 1500 MB/s. The floors are not lowered to chase a price.
+3. **A bargain adds a host.** A scan can justify another box when that line can pay for it. It never justifies destroying a live host.
+4. **Destroy is a separate operation.** "New model" and "better deal" mean add. They do not mean retire.
+
+The ops console shows the offer book the agent is reading: [pod-miner.com/ops](https://www.pod-miner.com/ops).
+
+## $PODM and POD
+
+These are different things.
+
+- **POD** is what a Dolphin host mines.
+- **$PODM** is the Solana token where the three lines meet.
+
+```
+mint: CdmjEpps6wHfYQM9z4goZMdCTZrPgdzguM5CNa7C3LM1
+```
+
+Verify that mint before any trade. Any other token using the POD Miner name is counterfeit.
+
+- **Rebates.** Fees on mainstream inference return to users, as in line 3.
+- **Defense.** POD mining profit can be converted into support for the $PODM price, as in line 2.
+- **Treasury.** The agent wallet and the mint are public. Rebates and buys that defend the price are on-chain events.
+
+Skills that govern the agent's decisions: [github.com/fraserbrownirl/podminer-skills](https://github.com/fraserbrownirl/podminer-skills). This file and the white paper are MIT-licensed in [`docs/`](https://github.com/fraserbrownirl/podminer-skills/tree/main/docs).
+
+## Till our servers melt
+
+Free inference for ClawPump agents, on the self-hosted box, until that capacity is gone.
+
+- Base URL: `https://api.pod-miner.com/v1`
+- API key: `burnbabyburn` (working path). `uuid.secret` is accepted as identity plus owner suffix; a UUID alone is 401. Keep the shared key until the bound claim is proven.
+- Model the free key runs: `qwen3.8:27b` on box `54270021` (RTX 3090, 24 GB)
+- Free tier: 60 requests/hour and 2,000,000 tokens/day
+- Unknown catalog names on this key are rewritten to the live model
+- Paid traffic can use healthy slots; the free key is a capped pool
+- Connect steps: [pod-miner.com/free](https://www.pod-miner.com/free)
+
+ClawPump path: Provider Connections → Custom OpenAI-compatible → Add Key → that base URL and key. A successful test returns exactly `PODMINER-PONG-7F3A` when asked for that string and no other characters.
+
+GET-only runtimes:
+
+```
+https://api.pod-miner.com/v1/complete?agent=YOUR_AGENT_ID&model=qwen3.8:27b&prompt=Reply%20with%20the%20single%20word%20pong
+```
+
+Success is HTTP 200 and `"content": "pong"`. `401` means the key is missing or wrong. `429` means the free quota or rate limit. `503` means no healthy box.
+
+## Credits for general models
+
+A wallet holder buys credits with Solana USDC and calls the same API. This path is independent of the ClawPump free key and of the Vast fleet.
+
+1. Open [pod-miner.com/app](https://www.pod-miner.com/app) and connect a Solana wallet.
+2. Buy credits. The app issues a `pk-cm-` key after the USDC payment.
+3. Call `https://api.pod-miner.com/v1/chat/completions` with `Authorization: Bearer pk-cm-...`.
+
+Models on this path: `kimi-k2.5`, `gpt-5-mini`, `claude-haiku-4.5`, `gemini-3-flash`.
+
+The browser does not talk to a Solana RPC directly. Wallet RPC goes through `POST /v1/credits/rpc` on the API. Payments are checked on-chain and cannot be replayed.
+
+## Vision
+
+Keep the procedure public and the rents additive. Hunt demand the large catalogs skip, sell it, and price the models people already call so that half the fees return. Use profit from Dolphin hosts as capital that can defend $PODM, instead of as a separate story from the token. One agent, one wallet, one API. The community can read the skills and fix the class of mistake, not a single instance: [podminer-skills](https://github.com/fraserbrownirl/podminer-skills).
+
+## Risks
+
+- A niche model can be wanted and still not fill a box. Mitigation: a small cost basis, and a server only when the weights and the deal both fit.
+- Dolphin's offerings change. A box that fit yesterday can be the wrong shape tomorrow. Mitigation: hunt against the latest offering, and do not churn a host that is still earning.
+- Rebates need fees. A price with no volume returns nothing. Mitigation: mainstream models stay on the catalog people already call.
+- A rented host can go offline. Mitigation: reliability floors. A new box does not imply that an old one is destroyed.
+
+## Pages
+
+- [Home](https://www.pod-miner.com/): rebate, credits, token, offer scan, live actions
+- [Ops](https://www.pod-miner.com/ops): mining, agents, boxes, offer scan (tester password)
+- [Free inference](https://www.pod-miner.com/free): ClawPump connection steps
+- [Credits and API key](https://www.pod-miner.com/app): Solana wallet, USDC, `pk-cm-` key
+- [White paper](https://www.pod-miner.com/whitepaper): version 0.3
+- [Live actions](https://www.pod-miner.com/live)
+- [Skills repo](https://github.com/fraserbrownirl/podminer-skills)
+- [docs/WHITEPAPER.md](https://github.com/fraserbrownirl/podminer-skills/blob/main/docs/WHITEPAPER.md)
+- [docs/llms.txt](https://github.com/fraserbrownirl/podminer-skills/blob/main/docs/llms.txt)
+
+## Limits of this file
+
+- No user counts, revenue, or fee totals are stated. The $350 / $500 / $175 figures are the white paper's example.
+- The free key and the credits catalog are different products on one API. `burnbabyburn` does not unlock `kimi-k2.5` or the other general models. A `pk-cm-` key is not the free-tier key.
+- Box `54270021` is the published free-inference host. The console is the current host list; this file does not freeze the rest of the fleet.
+- Updated 2026-10-06 from white paper v0.3 and the public site.
